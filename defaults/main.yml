@@ -1,0 +1,53 @@
+---
+
+php_ppa_repo: 'ppa:ondrej/php5-5.6'
+php_packages:
+  - php5
+php_service: 'apache2'
+php_mods_path: '/etc/php5/mods-available'
+php_config_files:
+  - location: '/etc/php5/cli/conf.d'
+    filename: 'custom.ini'
+    parameters:
+      memory_limit: 128
+  - location: '/etc/php5/apache2/conf.d'
+    filename: 'custom.ini'
+    parameters:
+      memory_limit: 128
+php_disable_mods:
+  - location: '/etc/php5/apache2/conf.d'
+    mods:
+      - '05-opcache.ini'
+      - '10-pdo.ini'
+      - '20-json.ini'
+      - '20-readline.ini'
+  - location: '/etc/php5/cli/conf.d'
+    mods:
+      - '05-opcache.ini'
+      - '10-pdo.ini'
+      - '20-json.ini'
+      - '20-readline.ini'
+php_enable_mods:
+  - location: '/etc/php5/cli/conf.d'
+    mods:
+      - name: 'opcache.ini'
+        priority: '05'
+      - name: 'pdo.ini'
+        priority: '10'
+      - name: 'json.ini'
+        priority: '20'
+      - name: 'readline.ini'
+        priority: '20'
+  - location: '/etc/php5/apache2/conf.d'
+    mods:
+      - name: 'opcache.ini'
+        priority: '05'
+      - name: 'pdo.ini'
+        priority: '10'
+      - name: 'json.ini'
+        priority: '20'
+      - name: 'readline.ini'
+        priority: '20'
+
+
+

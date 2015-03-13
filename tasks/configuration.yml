@@ -1,0 +1,31 @@
+---
+
+- name: set configuration files
+  template:
+    src: config.ini.j2
+    dest: '{{ item.location }}/{{ item.filename }}'
+    owner: root
+    group: root
+    mode: 0644
+  with_items: php_config_files
+  notify: php_restart_service
+
+- name: disable modules
+  file:
+    path: '{{ item.0.location }}/{{ item.1 }}'
+    state: absent
+  with_subelements:
+    - php_disable_mods
+    - mods
+  notify: php_restart_service
+
+- name: enable modules
+  file:
+    src: '{{ php_mods_path }}/{{ item.1.name }}'
+    dest: '{{ item.0.location }}/{{ item.1.priority}}-{{ item.1.name }}'
+    state: link
+  with_subelements:
+    - php_enable_mods
+    - mods
+  notify: php_restart_service
+
