@@ -1,6 +1,6 @@
 Ansible PHP Role
 =================
-[![Build Status](https://semaphoreci.com/api/v1/projects/4597dc39-b2ab-4e4a-8a90-204230ef1ca3/461769/badge.svg)](https://semaphoreci.com/michaelrigart/ansible-role-php) [![Build Status](https://travis-ci.org/michaelrigart/ansible-role-php.svg?branch=master)](https://travis-ci.org/michaelrigart/ansible-role-php)
+[![Build Status](https://semaphoreci.com/api/v1/projects/4597dc39-b2ab-4e4a-8a90-204230ef1ca3/461769/badge.svg)](https://semaphoreci.com/michaelrigart/ansible-role-php)
 
 An ansible role for installing and configuring PHP.
 
