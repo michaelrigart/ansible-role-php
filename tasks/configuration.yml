@@ -7,7 +7,7 @@
     owner: root
     group: root
     mode: 0644
-  with_items: php_config_files
+  with_items: '{{ php_config_files }}'
   notify: php_restart_service
 
 - name: disable modules
